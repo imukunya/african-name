@@ -1,0 +1,19 @@
+body{
+	background-color:  #e6f7ff;
+}
+div.app{
+	width:600px;
+	height: 300px;
+	border:solid thin #ccc;
+	background-color: #fff;
+	margin:0 auto;
+	margin-top: 4%;
+
+}
+
+#african_name{
+	font-weight: bold;
+	font-size:18px;
+	font-style:italic;
+	text-align: center;
+}

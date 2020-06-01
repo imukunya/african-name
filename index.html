@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+      <title>Get to Know the day of the week youre born</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+  </head>
+  <body>
+    <div class="app">
+        <form class="" action="" method="post">
+
+            
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label><br>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label><br>
+
+            <select class="birthdate" name="birthdate_day" id="birthdate_day">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+
+            &nbsp;&nbsp;
+            <select class="birthdate" name="birthdate_month" id="birthdate_month">
+                <option value="1">Jan</option>
+                <option value="2">Feb</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+
+            &nbsp;&nbsp;    
+            <input type="text" name="birth_year" value="" placeholder="Enter the Year you were born">
+            &nbsp;&nbsp;
+            <input type="button" id="get_birth_day" name="get_birth_day" value="Get Birth Day" onclick="getBirthDay()" />
+
+        </form>
+        <span class="african_name" id="african_name">
+            
+        </span>
+    </div>
+  </body>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript">
+      function getBirthDay(){
+        var yr = document.getElementById("get_birth_day").value;
+        var CC = yr.slice(0, 2);
+        var YY = yr.slice(2);
+
+
+        var DD = document.getElementById("birthdate_day").options[e.selectedIndex].value;
+        var MM = document.getElementById("birthdate_month").options[e.selectedIndex].value;
+        
+        var name = '';
+        if(document.getElementById("male").checked){
+            var male_names = ["Kwadwo","Kwabena","Kwaku","Yaw","Kofi","Kwame","Kwasi"];
+            name = DayWeekBorn(CC,YY,MM,DD,male_names);    
+        }else if(document.getElementById("male").checked){
+            var female_names = ["Adwoa","Abenaa","Akua","Yaa","Afua","Ama","Akosua"];
+            name = DayWeekBorn(CC,YY,MM,DD,female_names);
+        }
+
+        document.getElementById("african_name").innerHTML = name;
+        
+      }
+  </script>
+</html>
