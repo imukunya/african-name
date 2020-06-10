@@ -74,7 +74,7 @@
             </select>
 
             &nbsp;&nbsp;
-            <input type="text" name="birth_year" value="" placeholder="Enter the Year you were born">
+            <input type="text" id="birth_year" name="birth_year" value="" placeholder="Enter the Year you were born">
             &nbsp;&nbsp;
             <input type="button" id="get_birth_day" name="get_birth_day" value="Get Birth Day" onclick="getBirthDay(this)" />
 
@@ -87,25 +87,34 @@
   <script type="text/javascript" src="js/app.js"></script>
   <script type="text/javascript">
       function getBirthDay(e){
-        var yr = document.getElementById("get_birth_day").value;
-        var CC = yr.slice(0, 2);
-        var YY = yr.slice(2);
+        var yr = document.getElementById("birth_year").value;
+        var CC = parseInt(yr.slice(0, 2));
+        var YY = parseInt(yr.slice(2));
 
 
-        var DD = document.getElementById("birthdate_day").options[e.selectedIndex].value;
-        console.log(document.getElementById("birthdate_day"));
-        var MM = document.getElementById("birthdate_month").options[e.selectedIndex].value;
+        var DD = parseInt($("#birthdate_day :selected").text());
+        var MM = $("#birthdate_month option:selected").val();
+
+        console.log("yr:"+yr);
+        console.log("CC"+CC);
+        console.log("yy"+YY);
+        console.log("dd"+DD);
+        console.log("mm"+MM);
 
         var name = '';
         if(document.getElementById("male").checked){
             var male_names = ["Kwadwo","Kwabena","Kwaku","Yaw","Kofi","Kwame","Kwasi"];
             name = DayWeekBorn(CC,YY,MM,DD,male_names);
+            document.getElementById("african_name").innerHTML = name;
         }else if(document.getElementById("male").checked){
             var female_names = ["Adwoa","Abenaa","Akua","Yaa","Afua","Ama","Akosua"];
             name = DayWeekBorn(CC,YY,MM,DD,female_names);
+            document.getElementById("african_name").innerHTML = name;
+        }else{
+          window.alert("Please select a gender")
         }
 
-        document.getElementById("african_name").innerHTML = name;
+
 
       }
   </script>
